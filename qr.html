@@ -67,7 +67,7 @@
 
         .thuluth-header {
             font-family: 'AlThuluth', serif;
-            font-size: 6.5rem;
+            font-size: clamp(3.4rem, 9vw, 6.5rem);
             color: #3d2b1f;
             text-shadow: 0 10px 30px rgba(61, 43, 31, 0.15);
             line-height: 1;
@@ -75,7 +75,7 @@
 
         .alkanz-label {
             font-family: 'Alkanz', serif;
-            font-size: 2.8rem;
+            font-size: clamp(1.8rem, 5.5vw, 2.8rem);
             color: #3d2b1f;
             line-height: 1.4;
             font-weight: normal;
@@ -109,7 +109,7 @@
             width: 100%;
             padding: 0.8rem 3rem 0.8rem 2rem;
             color: #3d2b1f;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2.6vw, 1rem);
             font-weight: 700;
             outline: none;
             cursor: pointer;
@@ -142,7 +142,7 @@
         #feedbackText::placeholder {
             font-family: 'Alkanz', serif;
             color: rgba(61, 43, 31, 0.35);
-            font-size: 1.8rem;
+            font-size: clamp(1.2rem, 4.5vw, 1.8rem);
         }
 
         /* Language Specific Fonts */
@@ -193,40 +193,29 @@
         }
 
         @media (max-width: 640px) {
-            .thuluth-header {
-                font-size: 3.8rem;
-            }
-
-            .alkanz-label {
-                font-size: 2rem;
-            }
-
-            #feedbackText::placeholder {
-                font-size: 1.4rem;
-            }
-
-            #langSelect {
-                font-size: 0.9rem;
+            .btn-submit:hover:not(:disabled) {
+                transform: none;
+                box-shadow: none;
             }
         }
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col items-center justify-center py-10 px-6">
+<body class="min-h-screen min-h-[100dvh] flex flex-col items-center justify-center py-8 sm:py-10 px-4 sm:px-6">
     <div class="page-bg"></div>
     <div class="page-overlay"></div>
 
     <main class="w-full flex flex-col items-center justify-center relative z-20 space-y-8">
         <h1 class="thuluth-header text-center w-full">عرض الشكر</h1>
 
-        <div class="max-w-xl w-full glass-card rounded-[4rem] p-10 md:p-16" id="feedbackCard">
+        <div class="max-w-xl w-full glass-card rounded-[2.25rem] sm:rounded-[4rem] p-6 sm:p-10 md:p-16" id="feedbackCard">
 
-            <div class="text-center mb-8">
+            <div class="text-center mb-6 sm:mb-8">
                 <p class="alkanz-label">شكر ني عرض لكهوو</p>
             </div>
 
-            <div class="flex justify-center mb-10">
-                <div class="dropdown-container w-full max-w-[240px] relative">
+            <div class="flex justify-center mb-8 sm:mb-10">
+                <div class="dropdown-container w-full max-w-[240px] sm:max-w-[260px] relative">
                     <select id="langSelect">
                         <option value="en">English</option>
                         <option value="fr">Français</option>
@@ -241,20 +230,20 @@
             </div>
 
             <form id="feedbackForm" onsubmit="handleFormSubmit(event)">
-                <div class="mb-10">
+                <div class="mb-8 sm:mb-10">
                     <textarea id="feedbackText" rows="5"
-                        class="w-full bg-white/20 border border-coffee-dark/15 rounded-[3rem] p-10 text-coffee-dark placeholder-coffee-dark/40 focus:ring-2 focus:ring-coffee-dark/20 focus:border-transparent outline-none transition-all resize-none shadow-inner text-xl font-medium"
+                        class="w-full bg-white/20 border border-coffee-dark/15 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 text-coffee-dark placeholder-coffee-dark/40 focus:ring-2 focus:ring-coffee-dark/20 focus:border-transparent outline-none transition-all resize-none shadow-inner text-base sm:text-xl font-medium leading-relaxed"
                         placeholder="شكر ني عرض لكهوو"></textarea>
                 </div>
 
-                <div id="suggestionGrid" class="grid grid-cols-1 gap-5 mb-10">
+                <div id="suggestionGrid" class="grid grid-cols-1 gap-4 sm:gap-5 mb-8 sm:mb-10">
                     <!-- Suggestions will be populated here -->
                 </div>
 
                 <button type="submit" id="submitBtn"
-                    class="w-full py-6 rounded-full shadow-xl active:scale-95 transition-all flex items-center justify-center space-x-4 btn-submit text-2xl">
+                    class="w-full py-4 sm:py-6 rounded-full shadow-xl active:scale-95 transition-all flex items-center justify-center space-x-3 sm:space-x-4 btn-submit text-lg sm:text-2xl">
                     <span id="submitLabel">Submit</span>
-                    <i class="fa-solid fa-paper-plane text-xl"></i>
+                    <i class="fa-solid fa-paper-plane text-base sm:text-xl"></i>
                 </button>
             </form>
         </div>
@@ -263,14 +252,14 @@
     <div id="successModal"
         class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-coffee-dark/25 backdrop-blur-xl">
         <div
-            class="bg-white rounded-[3.5rem] p-14 max-w-md w-full shadow-2xl scale-in text-center border border-coffee-dark/5">
+            class="bg-white rounded-[2.25rem] sm:rounded-[3.5rem] p-8 sm:p-14 max-w-md w-full shadow-2xl scale-in text-center border border-coffee-dark/5">
             <div
-                class="w-24 h-24 bg-amber-50 text-coffee-dark rounded-full flex items-center justify-center mx-auto mb-10">
-                <i class="fa-solid fa-check text-5xl"></i>
+                class="w-16 h-16 sm:w-24 sm:h-24 bg-amber-50 text-coffee-dark rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-10">
+                <i class="fa-solid fa-check text-3xl sm:text-5xl"></i>
             </div>
-            <h3 class="text-3xl font-bold text-coffee-dark mb-4">شكرا</h3>
+            <h3 class="text-2xl sm:text-3xl font-bold text-coffee-dark mb-4">شكرا</h3>
             <button onclick="closeModal()"
-                class="w-full bg-coffee-dark text-white font-bold py-5 rounded-full hover:bg-stone-900 transition-all shadow-lg active:scale-95 text-xl">
+                class="w-full bg-coffee-dark text-white font-bold py-4 sm:py-5 rounded-full hover:bg-stone-900 transition-all shadow-lg active:scale-95 text-base sm:text-xl">
                 Close
             </button>
         </div>
@@ -299,7 +288,7 @@
             },
             hi: {
                 font: 'font-hindi',
-                suggestions: ["यह उपहार सदैव मौलाना की ओर से प्राप्त एक बरकत کے रूप میں संजोकर रखा जाएगा।", "अल्लाह हमारे मौला को सदैव प्रसन्न रखे और उन्हें कयामत के दिन तक लंबी उम्र प्रदान करे।"],
+                suggestions: ["यह उपहार सदैव मौलाना की ओर से प्राप्त एक बरकत के रूप में संजोकर रखा जाएगा", "अल्लाह हमारे मौला को सदैव प्रसन्न रखे और उन्हें कयामत के दिन तक लंबी उम्र प्रदान करे।"],
                 thanks: "धन्यवाद!"
             }
         };
@@ -321,7 +310,7 @@
 
             data.suggestions.forEach(text => {
                 const btn = document.createElement('button');
-                btn.className = `suggestion-btn p-8 text-xl font-bold rounded-[2rem] shadow-sm ${data.font || ''}`;
+                btn.className = `suggestion-btn p-5 sm:p-8 text-base sm:text-xl font-bold rounded-[1.75rem] sm:rounded-[2rem] shadow-sm ${data.font || ''}`;
                 btn.textContent = text;
                 btn.type = 'button';
 
