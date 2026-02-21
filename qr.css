@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════════════════════
+   FONT DECLARATIONS
+═══════════════════════════════════════════════════ */
+@font-face {
+    font-family: 'Alkanz';
+    src: url('assets/Al-Kanz for Windows.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AlFatemi';
+    src: url('assets/AlFatemi-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AlThuluth';
+    src: url('assets/A Thuluth Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnekGujarati';
+    src: url('assets/AnekGujarati-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TiroHindi';
+    src: url('assets/TiroDevanagariHindi-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
