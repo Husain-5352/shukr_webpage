@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest Feedback | عرض الشكر</title>
+    <title> عرض الشكر</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -151,6 +151,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             .dropdown-container,
             .dropdown-icon {
                 transition: none !important;
@@ -255,7 +256,8 @@
     <main class="w-full flex flex-col items-center justify-center relative z-20 space-y-8">
         <h1 class="thuluth-header text-center w-full">عرض الشكر</h1>
 
-        <div class="max-w-xl w-full glass-card rounded-[2.25rem] sm:rounded-[4rem] p-6 sm:p-10 md:p-16" id="feedbackCard">
+        <div class="max-w-xl w-full glass-card rounded-[2.25rem] sm:rounded-[4rem] p-6 sm:p-10 md:p-16"
+            id="feedbackCard">
 
             <div class="text-center mb-6 sm:mb-8">
                 <p class="alkanz-label">شكر ني عرض لكهوو</p>
@@ -270,7 +272,8 @@
                         <option value="gu">ગુજરાતી</option>
                         <option value="hi">हिन्दी</option>
                     </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-5 flex items-center text-coffee-dark/60 dropdown-icon">
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-5 flex items-center text-coffee-dark/60 dropdown-icon">
                         <i class="fa-solid fa-chevron-down text-sm"></i>
                     </div>
                 </div>
@@ -304,7 +307,7 @@
                 class="w-16 h-16 sm:w-24 sm:h-24 bg-amber-50 text-coffee-dark rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-10">
                 <i class="fa-solid fa-check text-3xl sm:text-5xl"></i>
             </div>
-            <h3 class="text-2xl sm:text-3xl font-bold text-coffee-dark mb-4">شكرا</h3>
+            <h3 class="text-2xl sm:text-4xl text-coffee-dark mb-4 font-alkanz">شكرًا</h3>
             <button onclick="closeModal()"
                 class="w-full bg-coffee-dark text-white font-bold py-4 sm:py-5 rounded-full hover:bg-stone-900 transition-all shadow-lg active:scale-95 text-base sm:text-xl">
                 Close
@@ -325,8 +328,8 @@
             ld: {
                 dir: 'rtl',
                 font: 'font-alkanz',
-                suggestions: ["اقا مولى طع ني هر نعمتو ثثر لاكهو شكر نا سجدة عرض كرووطط ححهوطط۔", "خدا اقا مولى طع ني عمر شريف نسس تاروز  قيامة دراز انسس دراز كرجو", "الحمد لله شكرا لله"],
-                thanks: "شکرا!"
+                suggestions: ["اقا مولى طع ني هر نعمتو ثثر لاكهو شكر نا سجدة عرض كروطط ححهوطط۔", "خدا اقا مولى طع ني عمر شريف نسس تاروز  قيامة دراز انسس دراز كرجو", "الحمد لله شكرا لله"],
+                thanks: "شكرًا!"
             },
             gu: {
                 font: 'font-gujarati',
@@ -403,8 +406,17 @@
                 colors: ['#3d2b1f', '#d4a373', '#fdfaf6']
             });
 
-            const thanksText = langData[currentLang].thanks;
-            document.querySelector('#successModal h3').textContent = thanksText;
+            const data = langData[currentLang];
+            const thanksText = data.thanks;
+            const successHeading = document.querySelector('#successModal h3');
+            successHeading.textContent = thanksText;
+
+            // Apply specific font if defined in langData
+            if (data.font) {
+                successHeading.className = `text-2xl sm:text-4xl text-coffee-dark mb-4 ${data.font}`;
+            } else {
+                successHeading.className = "text-2xl sm:text-3xl font-bold text-coffee-dark mb-4";
+            }
 
             document.getElementById('successModal').classList.remove('hidden');
             document.getElementById('feedbackText').value = '';
